@@ -32,10 +32,10 @@ jobs:
         run: |
           touch testfile
           echo "testtest" > testfile
-          #cp testfile /home/runner/work/_temp/_github_home/
-          cat /home/runner/work/_temp/_github_home
+          cp testfile /home/runner/work/test-repo/test-repo/
+          #cat /home/runner/work/_temp/_github_home
       
       - name: Run a multi-line script
         uses: docker://ubuntu:latest
         with:
-          args: cat /github/home/testfile
+          args: cat /github/workspace/testfile
