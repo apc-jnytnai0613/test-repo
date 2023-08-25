@@ -37,4 +37,4 @@ jobs:
         uses: docker://amazon/aws-cli
         with:
          # ntrypoint: ls
-          args: --version
+          args: "ls ; --version"
