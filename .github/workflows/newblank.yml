@@ -30,6 +30,7 @@ jobs:
       - name: create file
         id: create-file
         run: |
+          pwd
           touch testfile
           echo "testtest" > testfile
           #cp testfile /home/runner/work/test-repo/test-repo/
