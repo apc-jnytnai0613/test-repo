@@ -29,4 +29,5 @@ jobs:
       - name: Run a multi-line script
         uses: docker://amazon/aws-cli:2.7.6
         with: 
+          -v: ~/.aws:/root/.aws
           args: help
