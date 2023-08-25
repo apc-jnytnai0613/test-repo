@@ -36,5 +36,6 @@ jobs:
       - name: Run a multi-line script
         uses: docker://amazon/aws-cli
         with:
-          mount: ~:/tmp
-          args: s3 ls
+          args:
+            help
+            help
