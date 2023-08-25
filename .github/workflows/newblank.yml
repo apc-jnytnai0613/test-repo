@@ -38,5 +38,5 @@ jobs:
         with: 
           copy: ./testfile .
           args: |
-            export FILENAME=$(basename ./testfile)
+            FILENAME=$(basename ./testfile)
             cat $FILENAME
