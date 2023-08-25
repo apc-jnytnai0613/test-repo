@@ -36,5 +36,7 @@ jobs:
       - name: Run a multi-line script
         uses: docker://ubuntu:latest
         with: 
-          copy: ./testfile ./testsssssssssssssssssssss
-          args: cat testsssssssssssssssssssss
+          copy: ./testfile .
+          args: |
+            export FILENAME=$(basename ./testfile)
+            cat $FILENAME
