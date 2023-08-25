@@ -34,7 +34,7 @@ jobs:
           echo "testtest" > testfile
       
       - name: Run a multi-line script
-        uses: docker://amazon/aws-cli
+        uses: docker://ubuntu:latest
         with: 
           copy: ./testfile .
           args: cat $(ls | grep test*)
