@@ -32,9 +32,9 @@ jobs:
         run: |
           touch testfile
           echo "testtest" > testfile
+          cp testfile /home/runner/work/_temp/_github_home/
       
       - name: Run a multi-line script
-        uses: docker://amazon/aws-cli
+        uses: docker://ubuntu:latest
         with:
-         # ntrypoint: ls
-          args: "ls ; --version"
+          args: cat /github/home/testfile
