@@ -36,6 +36,5 @@ jobs:
       - name: Run a multi-line script
         uses: docker://amazon/aws-cli
         with:
-          args:
-            --version
-            --version
+          entrypoint: ls
+          args: --version
