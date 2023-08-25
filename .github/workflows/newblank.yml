@@ -37,5 +37,5 @@ jobs:
         uses: docker://amazon/aws-cli
         with:
           args:
-            help
-            help
+            --version
+            --version
