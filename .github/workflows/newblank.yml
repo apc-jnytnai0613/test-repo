@@ -32,7 +32,7 @@ jobs:
         run: |
           touch testfile
           echo "testtest" > testfile
-          cp testfile /home/runner/work/test-repo/test-repo/
+          #cp testfile /home/runner/work/test-repo/test-repo/
           #cat /home/runner/work/_temp/_github_home
       
       - name: Run a multi-line script
