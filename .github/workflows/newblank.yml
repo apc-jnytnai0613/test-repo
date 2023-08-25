@@ -34,4 +34,7 @@ jobs:
           echo "testtest" > testfile
       
       - name: Run a multi-line script
-        run: docker run --rm -i -v ~:/tmp amazon/aws-cli aws s3 ls
+        uses: docker://amazon/aws-cli
+        with:
+          mount: ~:/tmp
+          args: s3 ls
