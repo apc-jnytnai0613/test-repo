@@ -34,7 +34,4 @@ jobs:
           echo "testtest" > testfile
       
       - name: Run a multi-line script
-        uses: docker://ubuntu:latest
-        with: 
-          copy: ./testfile .
-          args: ls
+        run: docker run --rm -i -v ~:/tmp amazon/aws-cli aws s3 ls
