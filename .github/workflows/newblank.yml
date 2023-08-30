@@ -29,7 +29,11 @@ jobs:
     steps:
       - name: check inputs
         run: |
-          TEST=${{ github.event.inputs.text }}
+          if [ -z ${{ github.event.inputs.text }} ]; then
+            TEST=taniai
+          else
+            TEST=${{ github.event.inputs.text }}
+          fi
           echo $TEST
         
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
