@@ -45,7 +45,7 @@ jobs:
 
       - name: push tag
         run: |
-          # checkout時のFine-grain tokenでcontentsのRead and Writeで許可する
+          # checkout時のPATのrepoのFullコントロールで許可する
           # checkoutに必要
           git fetch origin develop
           # tag付けに必要
@@ -56,14 +56,14 @@ jobs:
       - name: cheout remote tag
         uses: actions/checkout@v3
         with:
-          #token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.GH_PAT }}
           repository: apc-jnytnai0613/oidc-test
           path: oidc-test
 
       - name: push remote tag
         run: |
           cd oidc-test
-          # checkout時のFine-grain tokenでcontentsのRead and Writeで許可する
+          # checkout時のPATのrepoのFullコントロールで許可する
           # checkoutに必要
           git fetch origin develop
           # tag付けに必要
