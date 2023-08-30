@@ -43,7 +43,10 @@ jobs:
 
       - name: push tag
         run: |
+          # Workflow permissionsのRead and Write permissionが必要
+          # checkoutに必要
           git fetch origin develop
+          # tag付けに必要
           git checkout develop
           git tag test develop
           git push origin test
