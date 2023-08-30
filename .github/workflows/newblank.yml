@@ -62,6 +62,7 @@ jobs:
 
       - name: push tag
         run: |
+          cd oidc-test
           # checkout時のFine-grain tokenでcontentsのRead and Writeで許可する
           # checkoutに必要
           git fetch origin develop
