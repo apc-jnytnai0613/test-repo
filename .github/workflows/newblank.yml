@@ -27,15 +27,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: check inputs
-        run: |
-          if [ -z ${{ github.event.inputs.text }} ]; then
-            TEST=taniai
-          else
-            TEST=${{ github.event.inputs.text }}
-          fi
-          echo $TEST
-        
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
