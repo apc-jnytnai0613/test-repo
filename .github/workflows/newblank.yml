@@ -30,7 +30,7 @@ jobs:
       - name: check input
         run: |
           if [ -z ${{ github.event.inputs.text }} ]; then
-            TEST=taniai
+            TEST=junya
           else
             TEST=${{ github.event.inputs.text }}
           fi
