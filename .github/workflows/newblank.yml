@@ -53,14 +53,14 @@ jobs:
           git tag test-$(date +%Y%m%d_%H%M%S) develop
           git push origin test-$(date +%Y%m%d_%H%M%S)
 
-      - name: push remote tag
+      - name: cheout remote tag
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.GH_TOKEN }}
           repository: apc-jnytnai0613/oidc-test
           path: oidc-test
 
-      - name: push tag
+      - name: push remote tag
         run: |
           cd oidc-test
           # checkout時のFine-grain tokenでcontentsのRead and Writeで許可する
