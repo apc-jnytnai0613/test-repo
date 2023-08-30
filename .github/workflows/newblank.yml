@@ -43,6 +43,7 @@ jobs:
 
       - name: push tag
         run: |
+          git fetch origin develop
           git checkout develop
           git tag test develop
           git push origin test
