@@ -51,7 +51,7 @@ jobs:
           # tag付けに必要
           git checkout develop
           git tag test-1232 develop
-          git push origin test-1219
+          git push origin test-1232
 
       - name: push remote tag
         uses: actions/checkout@v3
@@ -68,6 +68,6 @@ jobs:
           # tag付けに必要
           git checkout develop
           git tag test-1232 develop
-          git push origin test-1219
+          git push origin test-1232
           
       
