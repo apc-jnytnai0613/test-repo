@@ -40,3 +40,9 @@ jobs:
         uses: docker://ubuntu:latest
         with:
           args: cat /github/workspace/testfile
+
+      - name: push tag
+        uses: actions/checkout@v3
+        run: |
+          git tag test develop
+          git push origin test
