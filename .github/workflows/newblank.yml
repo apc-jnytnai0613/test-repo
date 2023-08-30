@@ -13,10 +13,14 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-      text:
+      frontendTag:
         description: "Test"
         required: false
-        default: 'taniai'
+        default: 'stable'
+      backendTag:
+        description: "Test"
+        required: false
+        default: 'develop'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -27,24 +31,25 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: check input
+      - name: Generate Application Tag
         run: |
-          if [ -n ${{ github.event.inputs.text }} ]; then
-            TEST=${{ github.event.inputs.text }}
+          # Frontend
+          if [ -n ${{ github.event.inputs.frontendTag }} ]; then
+             echo "FRONTEND_TAG=${{ github.event.inputs.frontendTag }}" >> "$GITHUB_ENV"
           else
-            TEST=junya
+             echo "FRONTEND_TAG=stable" >> "$GITHUB_ENV"
           fi
-          echo $TEST
-
-      - name: generate env
-        run: |
-          echo "TEST1=taniai" >> "$GITHUB_ENV"
-          echo "TEST2=junko" >> "$GITHUB_ENV"
+          # Backend
+          if [ -n ${{ github.event.inputs.backendTag }} ]; then
+             echo "BACKEND_TAG=${{ github.event.inputs.backendTag }}" >> "$GITHUB_ENV"
+          else
+             echo "BACKEND_TAG=develop" >> "$GITHUB_ENV"
+          fi
 
       - name: echo env
         run: |
-          echo ${{ env.TEST1 }}
-          echo ${{ env.TEST2 }}
+          echo ${{ env.FRONTEND_TAG }}
+          echo ${{ env.BACKEND_TAG }}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
