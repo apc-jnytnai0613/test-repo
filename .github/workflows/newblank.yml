@@ -23,7 +23,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3             
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT }}
 
       # Runs a set of commands using the runners shell
 
@@ -48,5 +50,7 @@ jobs:
           git fetch origin develop
           # tag付けに必要
           git checkout develop
-          git tag test develop
-          git push origin test
+          git tag test-1219 develop
+          git push origin test-1219
+
+      - name: push remote tag
