@@ -34,16 +34,16 @@ jobs:
       - name: Generate Application Tag
         run: |
           # Frontend
-          if [ -n ${{ github.event.inputs.frontendTag }} ]; then
-             echo "FRONTEND_TAG=${{ github.event.inputs.frontendTag }}" >> "$GITHUB_ENV"
-          else
+          if [ -z ${{ github.event.inputs.frontendTag }} ]; then
              echo "FRONTEND_TAG=stable" >> "$GITHUB_ENV"
+          else
+             echo "FRONTEND_TAG=${{ github.event.inputs.frontendTag }}" >> "$GITHUB_ENV"
           fi
           # Backend
-          if [ -n ${{ github.event.inputs.backendTag }} ]; then
-             echo "BACKEND_TAG=${{ github.event.inputs.backendTag }}" >> "$GITHUB_ENV"
-          else
+          if [ -z ${{ github.event.inputs.backendTag }} ]; then
              echo "BACKEND_TAG=develop" >> "$GITHUB_ENV"
+          else
+             echo "BACKEND_TAG=${{ github.event.inputs.backendTag }}" >> "$GITHUB_ENV"
           fi
 
       - name: echo env
