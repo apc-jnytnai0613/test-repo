@@ -94,6 +94,7 @@ jobs:
         with:
           token: ${{ secrets.GH_PAT }}
           repository: apc-jnytnai0613/oidc-test
+          ref: test-20230831_044841
           path: oidc-test
 
       - name: push remote tag
@@ -103,8 +104,8 @@ jobs:
           # checkoutに必要
           # git fetch origin develop
           # tag付けに必要
-          git checkout develop
-          git tag test-$(date +%Y%m%d_%H%M%S) develop
+          # git checkout develop
+          git tag test-$(date +%Y%m%d_%H%M%S) test-20230831_044841
           git push origin test-$(date +%Y%m%d_%H%M%S)
 
       - name: pwd1
