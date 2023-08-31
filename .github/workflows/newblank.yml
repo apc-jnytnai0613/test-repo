@@ -80,9 +80,11 @@ jobs:
           # checkout時のPATのrepoのFullコントロールで許可する
           # checkoutに必要
           cd test-repo
+          ls -l
+          git branch
           # git fetch origin develop
           # tag付けに必要
-          git checkout -b develop tags/test-20230831_044839
+          # git checkout -b develop tags/test-20230831_044839
           git tag test-$(date +%Y%m%d_%H%M%S) develop
           git push origin test-$(date +%Y%m%d_%H%M%S)
 
