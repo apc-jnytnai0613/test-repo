@@ -48,11 +48,21 @@ jobs:
           else
              echo "backend_tag=${{ github.event.inputs.backendTag }}" >> "$GITHUB_OUTPUT"
           fi
-
+          
       - name: echo env
         run: |
           echo ${{ steps.generate_tag.outputs.frontend_tag }}
           echo ${{ steps.generate_tag.outputs.backend_tag }}
+
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT }}
+          path: echo
+
+      - name: echo from init
+        run: |
+          TEST=$(source ./init.sh)
+          echo $TEST
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
