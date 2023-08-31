@@ -65,8 +65,6 @@ jobs:
       - name: create file
         id: create-file
         run: |
-          ls -l
-          pwd
           touch testfile
           echo "testtest" > testfile
           #cp testfile /home/runner/work/test-repo/test-repo/
@@ -81,6 +79,7 @@ jobs:
         run: |
           # checkout時のPATのrepoのFullコントロールで許可する
           # checkoutに必要
+          cd test-repo
           git fetch origin develop
           # tag付けに必要
           git checkout develop
