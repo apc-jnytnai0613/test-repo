@@ -46,10 +46,6 @@ jobs:
              echo "BACKEND_TAG=${{ github.event.inputs.backendTag }}" >> "$GITHUB_ENV"
           fi
 
-      - name: echo env
-        run: |
-          echo ${{ env.FRONTEND_TAG }}
-          echo ${{ env.BACKEND_TAG }}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
@@ -98,3 +94,13 @@ jobs:
           git checkout develop
           git tag test-$(date +%Y%m%d_%H%M%S) develop
           git push origin test-$(date +%Y%m%d_%H%M%S)
+
+  # This workflow contains a single job called "build"
+  echo:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo env
+        run: |
+          echo ${{ env.FRONTEND_TAG }}
+          echo ${{ env.BACKEND_TAG }}
