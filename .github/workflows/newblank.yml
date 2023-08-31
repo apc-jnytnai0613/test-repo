@@ -106,11 +106,13 @@ jobs:
 
       - name: pwd1
         run: |
+          export TEST=taniai
           cd test-repo
           pwd
 
       - name: pwd2
         run: |
+          echo $TEST
           pwd
 
   # This workflow contains a single job called "build"
