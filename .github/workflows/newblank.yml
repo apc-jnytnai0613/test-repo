@@ -28,24 +28,32 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    outputs:
+       frontend_tag: ${{ steps.generate_tag.outputs.frontend_tag }}
+       backend_tag: ${{ steps.generate_tag.outputs.backend_tag }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Generate Application Tag
+        id: generate_tag
         run: |
           # Frontend
           if [ -z ${{ github.event.inputs.frontendTag }} ]; then
-             echo "FRONTEND_TAG=notstable" >> "$GITHUB_ENV"
+             echo "frontend_tag=notstable" >> "$GITHUB_OUTPUT"
           else
-             echo "FRONTEND_TAG=${{ github.event.inputs.frontendTag }}" >> "$GITHUB_ENV"
+             echo "frontend_tag=${{ github.event.inputs.frontendTag }}" >> "$GITHUB_OUTPUT"
           fi
           # Backend
           if [ -z ${{ github.event.inputs.backendTag }} ]; then
-             echo "BACKEND_TAG=notdevelop" >> "$GITHUB_ENV"
+             echo "backend_tag=notdevelop" >> "$GITHUB_OUTPUT"
           else
-             echo "BACKEND_TAG=${{ github.event.inputs.backendTag }}" >> "$GITHUB_ENV"
+             echo "backend_tag=${{ github.event.inputs.backendTag }}" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: echo env
+        run: |
+          echo ${{ steps.generate_tag.outputs.frontend_tag }}
+          echo ${{ steps.generate_tag.outputs.backend_tag }}
+          
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
@@ -103,5 +111,5 @@ jobs:
     steps:
       - name: echo env
         run: |
-          echo ${{ env.FRONTEND_TAG }}
-          echo ${{ env.BACKEND_TAG }}
+          echo ${{ build.outputs.frontend_tag }}
+          echo ${{ build.outputs.backend_tag }}
