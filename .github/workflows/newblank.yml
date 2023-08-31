@@ -111,5 +111,5 @@ jobs:
     steps:
       - name: echo env
         run: |
-          echo ${{ build.outputs.frontend_tag }}
-          echo ${{ build.outputs.backend_tag }}
+          echo ${{ needs.build.outputs.frontend_tag }}
+          echo ${{ needs.build.outputs.backend_tag }}
