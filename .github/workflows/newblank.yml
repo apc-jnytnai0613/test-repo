@@ -65,6 +65,7 @@ jobs:
       - name: create file
         id: create-file
         run: |
+          ls -l
           pwd
           touch testfile
           echo "testtest" > testfile
