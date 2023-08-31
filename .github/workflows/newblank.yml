@@ -61,7 +61,7 @@ jobs:
 
       - name: echo from echo.sh
         run: |
-          TEST=$(source ./echo.sh)
+          TEST=$(source .github/workflows/echo.sh)
           echo $TEST
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
