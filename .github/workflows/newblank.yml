@@ -59,9 +59,9 @@ jobs:
           token: ${{ secrets.GH_PAT }}
           path: echo
 
-      - name: echo from init
+      - name: echo from echo.sh
         run: |
-          TEST=$(source ./init.sh)
+          TEST=$(source ./echo.sh)
           echo $TEST
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
