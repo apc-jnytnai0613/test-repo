@@ -9,4 +9,4 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   call_reusable_workflow:
-    uses: arc-test/blob/main/.github/workflows/blank_test.yml@main
+    uses: apc-jnytnai0613/arc-test/blob/main/.github/workflows/blank_test.yml@main
