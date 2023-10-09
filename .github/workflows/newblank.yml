@@ -11,9 +11,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: test
+      - name: test1
         run: |
            while true
+      - name: test2
+        run: echo test
       
   call_reusable_workflow:
     needs: [test]
