@@ -11,9 +11,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: test1
+      - name: Change Set Check 
         run: |
-           while true
+          while true Hub Actionsを再実行した場合にはデプロイを実行
+
       - name: test2
         run: echo test
       
