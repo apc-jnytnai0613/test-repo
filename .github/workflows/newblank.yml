@@ -13,7 +13,10 @@ jobs:
     steps:
       - name: Change Set Check 
         run: |
-          while true Hub Actionsを再実行した場合にはデプロイを実行
+          while true
+          do
+          sleep 1
+          done
 
       - name: test2
         run: echo test
