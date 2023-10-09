@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test
-        run: while true Hub
+        run: |
+           while true Hub
       
   call_reusable_workflow:
     needs: [test]
