@@ -11,12 +11,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Change Set Check 
+      # CFnの変更セット実行結果を取得
+      # - CFn変更セットの作成に成功すれば正常終了
+      # - CFnに変更が何もなければ正常終了
+      # - CFn変更セットの作成に失敗すれば異常終了で後続のデプロイは実行しない
+      - name: Change Set Check
         run: |
-          while true
-          do
-          sleep 1
-          done
+          while true Hub Actionsを再実行した場合にはデプロイを実行
+      - name: Cfn Deploy ${{env.YAML_NAME}}
+        if: env.RUN_NO != '1'  && env.STATUS == 'CREATE_COMPLETE'
+        run: aws cloudformation execute-change-set --change-set-name ${{env.CHANGESETID}}
 
       - name: test2
         run: echo test
