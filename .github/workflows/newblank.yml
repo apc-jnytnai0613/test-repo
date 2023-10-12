@@ -12,11 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test1
-        uses: docker://amazon/aws-cli:2.13.12
-        with:
-          args: --version > /github/workspace/test
-      - name: view file
-        run: |
-          pwd
-          ls -l
-          cat test
+        run: echo TEST=$(docker run amazon/aws-cli:2.13.1 --version) >> $GITHUB_ENV
+      - name: test2
+        run: echo ${{ env.TEST }}
