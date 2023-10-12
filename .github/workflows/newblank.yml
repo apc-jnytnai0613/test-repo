@@ -11,20 +11,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      # CFnの変更セット実行結果を取得
-      # - CFn変更セットの作成に成功すれば正常終了
-      # - CFnに変更が何もなければ正常終了
-      # - CFn変更セットの作成に失敗すれば異常終了で後続のデプロイは実行しない
-      - name: Change Set Check
-        run: |
-          while true Hub Actionsを再実行した場合にはデプロイを実行
-      - name: Cfn Deploy ${{env.YAML_NAME}}
-        if: env.RUN_NO != '1'  && env.STATUS == 'CREATE_COMPLETE'
-        run: aws cloudformation execute-change-set --change-set-name ${{env.CHANGESETID}}
-
+      - name: test1
+        run: echo TEST1=test1 >> $GITHUB_ENV
       - name: test2
-        run: echo test
-      
-  call_reusable_workflow:
-    needs: [test]
-    uses: apc-jnytnai0613/another-repo-build/.github/workflows/test.yml@main
+        run: echo TEST2=test2 >> $GITHUB_ENV
+      - name: echo
+        run: |
+          echo ${{ env.TEST1 }}
+          echo ${{ env.TEST2 }}
