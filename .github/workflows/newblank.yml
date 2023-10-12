@@ -18,4 +18,6 @@ jobs:
         with:
           args: --version > /github/workspace/test
       - name: view file
-        run: cat /home/runner/work/test-repo/test-repo/test
+        run: |
+          ls -l
+          cat /home/runner/work/test-repo/test-repo/test
