@@ -12,7 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test1
-        uses: docker://amazon/aws-cli:2.13.12
+        uses: aquasecurity/trivy-action@master
         with:
-          args: ecr \
-            list-images
+          scan-type: fs
+          exit-code: 1
+          ignore-unfixed: true
+          scanner: 'vuln,secret,config'
+          severity: 'HIGH,CRITICAL'
+          
