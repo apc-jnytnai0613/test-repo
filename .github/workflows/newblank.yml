@@ -12,10 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test1
-        run: echo TEST1=test1 >> $GITHUB_ENV
-      - name: test2
-        run: echo TEST2=test2 >> $GITHUB_ENV
-      - name: echo
-        run: |
-          echo ${{ env.TEST1 }}
-          echo ${{ env.TEST2 }}
+        uses: docker://amazon/aws-cli:2.13.12
+        with:
+          args: version
