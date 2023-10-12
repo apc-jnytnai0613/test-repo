@@ -11,7 +11,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: create file
+        run: touch test
       - name: test1
         uses: docker://amazon/aws-cli:2.13.12
         with:
-          args: --version
+          args: --version > test
+      - name: view file
+        run: cat test
