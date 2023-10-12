@@ -16,7 +16,7 @@ jobs:
       - name: test1
         uses: docker://amazon/aws-cli:2.13.12
         with:
-          args: --version > /github/workspace/test
+          args: --version > test
       - name: view file
         run: |
           ls -l
