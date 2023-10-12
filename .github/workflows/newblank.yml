@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create file
-        run: touch test
+        run: touch /home/runner/work/test-repo/test-repo/test
       - name: test1
         uses: docker://amazon/aws-cli:2.13.12
         with:
-          args: --version > test
+          args: --version > /github/workspace/test
       - name: view file
-        run: cat test
+        run: cat /home/runner/work/test-repo/test-repo/test
