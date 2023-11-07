@@ -22,4 +22,5 @@ jobs:
       run: | 
          pwd
          cd ./private-repo-example
+         pwd
          ls .github/workflows
