@@ -11,16 +11,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-      with:
-          # プライベートリポジトリを指定
-          repository: apc-jnytnai0613/test-repo
-          # checkout 先のパスを指定
-          path: ./private-repo-example
-
     - name: echo
       run: | 
-         pwd
-         cd ./private-repo-example
-         pwd
-         ls .github/workflows
+         # echo "Comment"
+         echo "uncomment"
