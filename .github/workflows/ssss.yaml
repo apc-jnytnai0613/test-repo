@@ -16,6 +16,6 @@ jobs:
          # echo "Comment"
          TEST=\"uncomment\"
          echo $TEST
-         JUNYA=$(echo $TEST | sed -e 's/\"//g')
+         JUNYA=${{echo $TEST | sed -e 's/\"//g'}}
          echo $JUNYA
          
