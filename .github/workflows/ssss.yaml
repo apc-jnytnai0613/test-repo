@@ -11,7 +11,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - name ch
+    - name: ch
       uses: actions/checkout@v3
       with:
         ref: main
