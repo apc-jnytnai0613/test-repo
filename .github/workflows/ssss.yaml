@@ -7,18 +7,18 @@ on:
   workflow_dispatch:
 
 env:
-  TEST1: junya
+  TEST1: junya1
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      TEST2:: junya
+      TEST2:: junya2
     steps:
     - name: ch
       env:
-        TEST3: junya
+        TEST3: junya3
       run: |
         echo $TEST1
         echo $TEST2
