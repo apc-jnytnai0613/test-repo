@@ -6,15 +6,24 @@ name: CI
 on:
   workflow_dispatch:
 
+env:
+  TEST1: junya
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      TEST2:: junya
     steps:
     - name: ch
-      uses: actions/checkout@v3
-      with:
-        ref: main
+      env:
+        TEST3: junya
+      run: |
+        echo $TEST1
+        echo $TEST2
+        echo $TEST3
+        
         
     - name: echo
       run: | 
