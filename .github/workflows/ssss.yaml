@@ -18,6 +18,7 @@ jobs:
     steps:
     - name: install checkov
       run: |
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
         brew install checkov
     - name: ch
       env:
