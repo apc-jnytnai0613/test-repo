@@ -16,6 +16,9 @@ jobs:
     env:
       TEST2: junya2
     steps:
+    - name: install checkov
+      run: |
+        brew install checkov
     - name: ch
       env:
         TEST3: junya3
