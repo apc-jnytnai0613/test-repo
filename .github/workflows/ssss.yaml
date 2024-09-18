@@ -24,12 +24,5 @@ jobs:
       env:
         TEST3: junya3
       run: |
-        echo $TEST1
-        echo $TEST2
-        echo $TEST3
-        
-        
-    - name: echo
-      run: | 
-         ls -l
-         
+        npm install @microsoft/microsoft-graph-client --save
+        npm install @microsoft/microsoft-graph-types --save-dev
